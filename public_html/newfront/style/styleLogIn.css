@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+:root {
+  --orang: #f58634;
+  --lightGray: #adadad;
+  --backgroundw: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.3)
+  );
+  /* --linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)); */
+}
+.Roboto {
+  font-family: 'Roboto', sans-serif;
+}
+.bgCenter {
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 11px;
+  height: 576px;
+}
+.bgHlftcircle {
+  z-index: -1;
+  position: absolute;
+  top: 24px;
+  left: -50px;
+  animation: circleRotate 6s infinite linear forwards reverse;
+}
+.bgCircle {
+  z-index: -1;
+  position: absolute;
+  bottom: 19px;
+  right: -40px;
+  animation: circleRotate 6s infinite linear forwards reverse 1s;
+}
+.bgorange {
+  background-color: var(--orang) !important;
+}
+.bgorange1 {
+  background-color: var(--orang) !important;
+  z-index: -11;
+  background-repeat: repeat !important;
+  background-size: cover !important;
+  padding: 111px;
+  z-index: 3;
+}
+@media screen and (max-width: 992px) {
+  .bgorange1 {
+    padding: 20px;
+  }
+}
+.textGrey {
+  color: var(--lightGray) !important;
+}
+
+.textOrang {
+  color: var(--orang) !important;
+}
+
+input[type='email'],
+input[type='password'],
+input[type='text'] {
+  box-shadow: none !important;
+  background-color: #f2f5f7 !important;
+  border: none !important;
+  border-radius: 18px;
+  height: 50px;
+  padding-left: 20px;
+}
+
+:is(input[type='email'], input[type='password'], input[type='text']):focus,
+select:focus {
+  border: none !important;
+  box-shadow: none !important;
+}
+button[type='submit'] {
+  border-radius: 77px !important;
+  height: 45px;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  opacity: 1;
+}
+
+.certificate-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  margin-top: 23px;
+}
+.form-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  color: #4b4b4d;
+  margin: 55px 0px;
+}
+.wrapper.full {
+  height: auto;
+}
+.wrapper {
+  height: 62vh;
+  width: 80% !important;
+}
+
+@media screen and (max-width: 992px) {
+  .wrapper {
+    width: 100% !important;
+  }
+}
+.form-select.country {
+  background-color: #f2f5f7 !important;
+  border-radius: 18px !important;
+  border: none;
+  border-radius: 77px !important;
+  height: 45px;
+}
+.social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  color: #f58634;
+  border: 2px solid #f58634;
+  border-radius: 77px;
+  min-height: 45px;
+  text-decoration: none;
+  cursor: pointer;
+  width: 297px;
+  max-width: 297px;
+  margin: 0 auto;
+}
+.social-link:first-of-type {
+  margin: 40px auto 18px auto;
+}
+.social-link:hover {
+  color: #f58634;
+}
+.social-link:hover svg {
+  filter: grayscale(70%);
+}
+.social-link svg {
+  position: absolute;
+  left: 10px;
+  transition: all 0.2s ease-in-out;
+}
+.swiper.loginSwiper {
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  width: 18px !important;
+  height: 18px !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+.swiper-pagination-bullet-active {
+  background: rgba(255, 255, 255) !important;
+  width: 24px !important;
+  height: 24px !important;
+}
+.swiper-pagination {
+  bottom: 30px;
+}
+@keyframes circleRotate {
+  from {
+    transform: rotate(0deg) translate(-10px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(-10px) rotate(-360deg);
+  }
+}
+@keyframes squareRotate {
+  from {
+    transform: rotate(0deg) translate(-5px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(-5px) rotate(-360deg);
+  }
+}

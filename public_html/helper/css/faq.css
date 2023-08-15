@@ -1,0 +1,50 @@
+.container {
+  background-color: transparent;
+  overflow-x: hidden;
+}
+
+.card {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.addQuestion {
+  margin-right: 0.5rem;
+  color: #f58634;
+}
+.faq-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+}
+hr {
+  color: #959798;
+}
+.card-body {
+  padding: 0px !important;
+}
+.faq-content div:first-child {
+  font-weight: 400;
+  font-size: 16px;
+  position: relative;
+  /* top: -2rem !important; */
+  top: 0px !important;
+}
+@media only screen and (max-width: 768px) {
+  .faq-content div:first-child {
+    position: relative;
+    top: 15px !important;
+    left: 35px;
+    width: 90%;
+  }
+}
+
+.btn-link:hover {
+  color: #f58634 !important;
+}
+.card-btn {
+  color: #f58634 !important;
+  padding: 0px !important;
+  text-align: start;
+}

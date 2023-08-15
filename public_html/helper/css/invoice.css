@@ -1,0 +1,89 @@
+.container {
+  width: 70%;
+  margin-left: 7rem;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+header {
+  margin-top: 7rem;
+  margin-bottom: 2rem;
+}
+.logo {
+  position: relative;
+  top: -1rem;
+  width: 15rem;
+}
+.title {
+  padding-top: 1.5rem;
+  color: #f58634;
+  font-size: 36px;
+  font-weight: bold;
+}
+hr {
+  border: 3px solid #f58634;
+  opacity: 1;
+}
+.text {
+  color: #bababb;
+}
+.totaldues {
+  display: flex;
+  justify-content: end;
+}
+
+thead {
+  vertical-align: middle !important;
+  background-color: #f58634;
+  height: 4rem;
+}
+thead > tr > th {
+  font-size: 24px;
+  color: #ffffff;
+}
+.total {
+  color: #554e4a;
+}
+tbody {
+  font-size: 20px;
+  font-weight: 600;
+  border-style: none !important;
+}
+tbody > tr > .gray-col {
+  background-color: #e7e7e9;
+}
+tbody > .table-footer,
+tbody > tr > .table-footer {
+  border: 1px solid transparent !important;
+}
+tbody > tr > .sec-foot-tr {
+  border-bottom: 1px solid #554e4a !important;
+}
+tbody > tr > .height {
+  height: 7rem;
+  border-bottom: 5px solid #f58634 !important;
+}
+.footer-background-wrapper {
+  height: 8rem;
+}
+.footer-background {
+  height: 26rem;
+  position: relative;
+  top: -19rem;
+}
+.footer-hr {
+  color: #f58634;
+}
+.img-footer {
+  width: 2.5rem;
+}
+footer {
+  height: 10rem;
+}
+.hrfoot {
+  height: 45px;
+  margin: 10px;
+  width: 45%;
+  background-image: url(imgs/hr\ footer.png);
+  background-size: cover;
+}

@@ -1,0 +1,113 @@
+:root {
+    --orang: #F58634;
+    --lightGray: #ADADAD;
+    --grayHeader:#4B4B4D;
+    --light:#F2F2F2;
+  }
+  ul li>a{
+    font-family: 'Roboto', sans-serif;
+    color: var(--grayHeader) !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 20px !important;
+    line-height: 23px !important;
+    letter-spacing: -0.015em !important;
+  }
+.Roboto {
+    font-family: 'Roboto', sans-serif !important;
+ 
+
+}
+.light{
+    color: var(--light);
+}
+.bgorange {
+    background-color: var(--orang)!important;
+}
+
+.textLGrey {
+    color: var(--lightGray) !important;
+}
+.textGrey {
+    color: var(--grayHeader) !important;
+}
+
+.textOrang {
+    color: var(--orang) !important;
+}
+.bgorangeInline{
+    border: 1px solid var(--orang)!important;
+    color: var(--orang) !important;
+}
+.bgorangeInline,.btnorange{
+    height: 40px !important;
+ 
+    border-radius: 77px !important;
+    }
+.prgr{
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 24px;
+}
+.bgCardBody2,.bgCardBody{
+    background-color: var(--light)!important;
+
+}
+.bgCardBody{
+ 
+    /* border-radius: 11px !important; */
+    border-top-right-radius: 11px !important;
+    border-bottom-right-radius: 11px !important;
+
+}
+.bgCardBody2{
+    border-top-left-radius: 11px !important;
+    border-bottom-left-radius: 11px !important;
+}
+.border4 .card1,.border4>.card2{
+    border: 7px solid var(--orang) !important;
+    border-top: 7px solid var(--orang) !important;
+    border-left: 7px solid var(--orang) !important;
+    border-right: none !important;
+    border-radius: 0% !important; 
+}
+.border4 .card3{
+    border: 7px solid var(--orang) !important;
+    border-top: 7px solid var(--orang) !important;
+    /* border-left: 7px solid var(--orang) !important; */
+    border-right: 7px solid var(--orang) !important;
+    border-radius: 0% !important; 
+}
+.border4 .card:nth-child(odd){
+    background-color: #F2F2F2 !important;
+    color: var(--grayHeader) !important;
+
+}
+.border4 .card:nth-child(even){
+    background-color: var(--grayHeader) !important;
+    color: #F2F2F2 !important;
+}
+.border4 .card:last-child{
+    background: url(../images/Group\ 76.png);
+}
+
+
+input[type='email'] {
+    box-shadow: none !important;
+    background-color: #fff !important;
+    border: none !important;
+    border-radius: 18px;
+    height: 50px;
+    padding-left: 20px;
+}
+
+:is(input[type='email'], input[type='password'], input[type='text']):focus {
+    border: none !important;
+}
+.btnSubscribeInline{
+    background-color: #fff !important;
+    color: var(--orang) !important;
+    border-radius: 77px !important;
+
+}

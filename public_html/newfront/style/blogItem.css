@@ -1,0 +1,30 @@
+:root {
+    --orang: #F58634;
+    --lightGray: #ADADAD;
+    --grayHeader:#4B4B4D;
+    --light:#F2F2F2;
+    --LightBlue: #F2F5F6;
+    --DarkGray:#D8D8D8;
+    --Placholder:#ADADAD;
+  }
+  .DarkGrayText{
+    color: var(--DarkGray);
+  }
+  ::marker ,li{
+    color: var(--Placholder) !important;
+
+
+  }
+
+   .activeLi::marker ,.activeLi {
+
+    color: #F58634 !important;
+}
+.Popular{
+  white-space: nowrap !important; 
+  width: 100%  !important; 
+  overflow: hidden !important;
+  text-overflow: ellipsis !important; 
+  font-family: 'Roboto', sans-serif !important;
+
+}

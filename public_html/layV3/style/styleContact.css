@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+.conactUs-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.contactUs {
+  background-color: #f58634;
+  clip-path: polygon(116px 0, 100% 0%, 100% 100%, 0% 100%);
+  padding: 100px 0px 100px 170px;
+  margin-left: -177px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.contactUs .contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-left: 0px;
+}
+.contactUs .contacts li {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #f2f2f2;
+}
+.contactUs .contacts li span{
+ font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #f2f2f2;
+}
+
+.contactUs-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  color: #4b4b4d;
+  margin-bottom: 23px;
+}
+.contactUs .form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 70%;
+}
+.contactUs .form input,
+.contactUs .form textarea {
+  border-radius: 18px;
+  box-shadow: inset 0px 9px 20px -11px rgb(0 0 0 / 53%) !important;
+  padding: 18px;
+  max-width: 470px;
+}
+
+.contactUs .form .contactUs-title {
+  margin-top: 70px;
+}
+.form .submit-btn {
+  background: #ffffff;
+  border-radius: 77px;
+  border: 1px solid transparent;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: #f58634;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 173px;
+  height: 45px;
+}
+.form .submit-btn:hover {
+  color: #f58634;
+  background: #ffffff;
+  border: 1px solid #f58634;
+}
+
+.illustration {
+  z-index: 4;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.illustration img {
+  max-width: 650px;
+  transform: rotate(-1deg);
+  animation: imgBreath 1.3s linear alternate infinite;
+}
+@keyframes imgBreath {
+  0% {
+    transform: rotate(-1deg) translateY(8px);
+  }
+  100% {
+    transform: rotate(-1deg) translateY(0px);
+  }
+}
+@media screen and (max-width: 1110px) {
+  .conactUs-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .contactUs {
+    clip-path: none;
+    margin-left: 0px;
+    padding-left: 30px;
+  }
+  .contactUs .form {
+    width: 90%;
+  }
+  .contactUs-title {
+    font-size: 28px;
+  }
+  .illustration {
+    display: none;
+  }
+}
+
+/* Book Styles */

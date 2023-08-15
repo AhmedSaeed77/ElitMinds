@@ -1,0 +1,223 @@
+.package-details {
+  margin-bottom: 50px;
+}
+.package-details-heading {
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--text-primary);
+}
+.package-details-para {
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+.package-details-rating {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  margin: 4px 0px;
+}
+.br-theme-cs-icon .br-widget {
+  height: 24px;
+}
+.package-details-overview {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+.package-details-button,
+.package-details-reset-button {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  background: var(--text-accent);
+  border-radius: 13px;
+  border: none;
+  outline: none;
+  height: 50px;
+  color: var(--text-reverse);
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+.package-details-button:hover {
+  color: var(--text-reverse);
+  background-color: darken(--text-accent, 0.5);
+}
+.package-details-reset-button {
+  background-color: var(--bg-active-accent);
+  color: var(--text-accent);
+}
+.progress-menu {
+  background-color: var(--bg-primary);
+  padding: 32px 17px;
+  border: 0;
+  box-shadow: 0px 0px 88px #00000024;
+  width: max-content;
+  font-size: 16px;
+}
+.package-details-nextup {
+  border-right: 1px solid #cfcfcf;
+}
+.package-details-nextup h4 {
+  color: var(--text-accent);
+  font-weight: 600;
+  font-size: 16px;
+}
+.package-details-nextup p {
+  color: var(--text-primary);
+  font-weight: 400;
+  font-size: 16px;
+}
+.package-details-progress a {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-primary) !important;
+}
+.nav-tabs li {
+  padding: 30px 0px !important;
+}
+.nav-tabs * {
+  color: var(--text-primary) !important;
+}
+.nav-tabs li a::after {
+  bottom: -19px !important;
+  background-color: var(--text-accent) !important;
+}
+.nav-tabs {
+  background: var();
+  box-shadow: 0px 1px 0px rgba(44, 47, 50, 0.06);
+}
+
+.nav-tabs a.nav-link {
+  margin-right: 30px;
+  color: var(--text-muted) !important;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+}
+.nav-tabs a.nav-link.active {
+  color: var(--text-primary) !important;
+}
+.nav-tabs li a::after {
+  bottom: -19px !important;
+  background-color: var(--quaternary) !important;
+}
+
+@media screen and (max-width: 992px) {
+  .nav-tabs::-webkit-scrollbar {
+    height: 4px;
+  }
+  /* Track */
+  .nav-tabs::-webkit-scrollbar-track {
+    background: #e9eaea;
+  }
+
+  /* Handle */
+  .nav-tabs::-webkit-scrollbar-thumb {
+    background: #d86c1f;
+  }
+
+  /* Handle on hover */
+  .nav-tabs::-webkit-scrollbar-thumb:hover {
+    background: #d86c1f;
+  }
+  .page-content li {
+    padding: 0px !important;
+  }
+}
+.review {
+  margin: 30px 0px;
+  padding-bottom: 40px;
+}
+.review:not(:last-of-type) {
+  border-bottom: 1px solid #e9eaea26;
+}
+.review-pic {
+  margin-right: 22px;
+}
+.review-name {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+.review-date {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.review .br-wrapper {
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+.review-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+.review-question {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.review-actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+.review-actions .btn-white {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 1px 0px rgba(44, 47, 50, 0.06);
+  border-radius: 21px;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+}
+.review-actions .review-report {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--text-accent);
+  cursor: pointer;
+}
+.review-reply {
+  border-left: 2px solid #959798;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+div.tab-pane li {
+  list-style-type: unset !important;
+}
+div.tab-pane ul {
+    display: block;
+   list-style-type: disc;
+   -webkit-margin-before: 1em;
+   -webkit-margin-after: 1em;
+   -webkit-margin-start: 0px;
+   -webkit-margin-end: 0px;
+   -webkit-padding-start: 40px;
+}

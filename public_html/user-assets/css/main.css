@@ -1,0 +1,172 @@
+/* This file is reserved for overriding and extending the template styles. */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,500;1,700&display=swap');
+/* Reset */
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  padding: 0;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+/* Typography */
+body {
+  font-family: 'Roboto', sans-serif !important;
+}
+html {
+  font-size: 100%;
+}
+@media screen and (max-width: 1366px) {
+  html {
+    font-size: 90%;
+  }
+}
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 75%;
+  }
+}
+.f-xsmall {
+  /* 11px */
+  font-size: 0.688rem;
+}
+.f-small {
+  /* 12 */
+  font-size: 0.75rem;
+}
+.f-base {
+  /* 14px */
+  font-size: 0.875rem;
+}
+.f-large {
+  /* 16px */
+  font-size: 1rem;
+}
+.f-heading-6 {
+  /* 18px */
+  font-size: 1.125rem;
+}
+.f-heading-5 {
+  /* 20px */
+  font-size: 1.25rem;
+}
+.f-heading-4 {
+  /* 22px */
+  font-size: 1.375rem;
+}
+.f-heading-3 {
+  /* 25px */
+  font-size: 1.563rem;
+}
+.f-heading-2 {
+  /* 28px */
+  font-size: 1.75rem;
+}
+.f-heading-1 {
+  /* 32 */
+  font-size: 2rem;
+}
+/* Font Weight */
+.f-bold-9 {
+  font-weight: 900;
+}
+.f-bold-8 {
+  font-weight: 800;
+}
+.f-bold-7 {
+  font-weight: 700;
+}
+.f-bold-6 {
+  font-weight: 600;
+}
+.f.bold-5 {
+  font-weight: 500;
+}
+
+/* Font Colors */
+.f-main-color {
+  color: var(--text-primary);
+}
+.f-accent-color {
+  color: var(--text-accent) !important;
+}
+.f-muted-color {
+  color: var(--text-muted) !important;
+}
+/***********************/
+
+/* Inputs */
+.input-label {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+input,
+input::placeholder,
+select,
+textarea {
+  color: var(--text-primary) !important;
+}
+select,
+input,
+textarea {
+  background-color: var(--bg-input) !important;
+}
+input,
+select {
+  height: 56px !important;
+  background: #eaebeb;
+  box-shadow: 0px 1px 0px rgba(44, 47, 50, 0.06);
+  border-radius: 14px;
+}
+.form-control:focus {
+  border-color: var(--text-accent);
+}
+.form-select {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23F58634' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>");
+}
+/****************/
+@media screen and (max-width: 1024px) {
+  .nav-tabs {
+    height: 92px;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  .nav-tabs::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  /* Track */
+  .nav-tabs::-webkit-scrollbar-track {
+    background: #e9eaea;
+  }
+
+  .nav-tabs::-webkit-scrollbar-thumb {
+    background: #d86c1f;
+  }
+
+  .nav-tabs::-webkit-scrollbar-thumb:hover {
+    background: #d86c1f;
+  }
+  .nav-tabs li {
+    padding: 0px !important;
+  }
+}
+.nav-tabs-line-title > li > .nav-link.active:after,
+.nav-tabs-line-title > div > .nav-link.active:after {
+  height: 2px;
+  background: var(--bg-accent);
+}

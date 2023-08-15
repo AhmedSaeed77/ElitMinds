@@ -1,0 +1,48 @@
+.carousel-container , .carousel-containerbook,.carousel-containerEducational{
+    /* margin: 50px auto; */
+    position: relative;
+  
+  }
+  
+  .inner-carousel {
+    width: 88%;
+    /* height: 400px; */
+    overflow: hidden;
+  }
+  .track,.trackbook,.trackEducational {
+    display: inline-flex;
+    height: 100%;
+    transition: transform 0.9s ease-in-out;
+  }
+  .card-container {
+    width: 275px;
+    /* height: 400px; */
+    flex-shrink: 0;
+    padding-right: 10px;
+  }
+  
+  .cards {
+    width: 100%;
+    height: 100%;
+    /*display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;*/
+    background-position: center bottom;
+    background-size: center;
+    background-repeat: no-repeat;
+  }
+  
+  .prevEducational  ,.prevcertificates,.prevbook{
+    /* left: -30px; */
+    display: none;
+  }
+  .prevEducational.show ,.prevcertificates.show ,.prevbook.show{
+    display: block;
+  }
+  .next,.nextbook {
+    
+  }
+  .nextEducational.hide,.nextcertificates.hide,.nextbook.hide {
+    display: none;
+  }

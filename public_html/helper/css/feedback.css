@@ -1,0 +1,54 @@
+/* @media only screen and (max-width: 600px) {
+  .rating-card {
+    width: 3.5rem !important;
+    height: 5rem !important;
+    margin-right: 2rem !important;
+  }
+  .select2 {
+    width: 18.3rem !important;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .rating-card {
+    width: 4.5rem !important;
+    height: 5rem !important;
+  }
+  .select2 {
+    width: 18.3rem !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .col-md-2 {
+    width: 11rem !important;
+  }
+  .rating-card {
+    width: 8.5rem !important;
+    height: 10rem !important;
+  }
+  .feedback-input {
+    width: 51rem;
+  }
+  .sendfeedback {
+    display: block;
+    margin-left: auto;
+  }
+  .select2 {
+    width: 51rem !important;
+  }
+}
+
+@media only screen and(min-width: 992px) {
+  .rating-card {
+    width: 10.5rem !important;
+    height: 10rem !important;
+    margin-right: 2rem !important;
+  }
+} */
+
+.filled .select2-selection {
+  min-height: 44px !important;
+  border: 1px solid transparent !important;
+  background: #eaebeb !important;
+}

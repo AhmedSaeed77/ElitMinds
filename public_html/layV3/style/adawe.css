@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+  .navrespo {
+    padding-top: 20px;
+    background-color: white;
+    padding-bottom: 20px;
+  }
+
+  #navbarSupportedContent {
+    background-color: white;
+    padding-bottom: 20px;
+  }
+
+  #dd {
+    margin-left: 0;
+  }
+}

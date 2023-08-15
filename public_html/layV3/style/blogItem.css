@@ -1,0 +1,49 @@
+:root {
+  --orang: #f58634;
+  --lightGray: #adadad;
+  --grayHeader: #4b4b4d;
+  --light: #f2f2f2;
+  --LightBlue: #f2f5f6;
+  --DarkGray: #d8d8d8;
+  --Placholder: #adadad;
+}
+.DarkGrayText {
+  color: var(--DarkGray);
+}
+::marker,
+li {
+  color: var(--Placholder) !important;
+}
+
+.activeLi::marker,
+.activeLi {
+  color: #f58634 !important;
+}
+.Popular {
+  white-space: nowrap !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+#langSelect {
+  border: 2px solid #adadad;
+  border-radius: 77px;
+  padding: 2px 4px;
+}
+#langSelect:focus {
+  outline: none;
+}
+
+/* New styles */
+.list-title {
+  font-size: 20px;
+  color: #4b4b4d;
+}
+.list-link {
+  font-size: 16px !important;
+  color: #adadad !important;
+}
+.list-link.active {
+  color: #f58634;
+}

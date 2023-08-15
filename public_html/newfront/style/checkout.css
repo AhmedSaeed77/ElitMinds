@@ -1,0 +1,30 @@
+
+:root {
+    --orang: #F58634;
+    --lightGray: #ADADAD;
+    --grayHeader:#4B4B4D;
+    --light:#F2F2F2;
+    --LightBlue: #F2F5F6;
+    --DarkGray:#D8D8D8;
+    --Placholder:#ADADAD;
+  }
+  select{
+    border: 1px solid var(--DarkGray) !important;
+  }
+  select:focus{
+    box-shadow: none !important;
+  }
+  .textPlacholder{
+    color: var(--Placholder);
+  }
+
+  .lightBg{
+    background-color: var(--light);
+  }
+
+  input[name="flexRadioDefault"] {
+	accent-color: green !important;
+}
+input[type=radio]#Credit,input[type=radio]#PayPal {
+    accent-color:var(--orang) !important;
+}
