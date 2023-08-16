@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Redirect as FacadesRedirect;
 use App\Book;
 use App\Post;
 use App\Events\PackageCounter;
+use PDF;
 
 class HomeController extends Controller
 {
@@ -56,6 +57,28 @@ class HomeController extends Controller
     //     //$book = DB::table('books')->where('id', 20)->first();
     //     return view('indexbooks')->with('book', $book);    
     // }
+    
+    public function exportpdf()
+    {
+        $data = \App\UserPackages::join('packages','packages.id','user_packages.package_id')
+                    ->leftJoin('users','users.id','user_packages.user_id')
+                    ->select([
+                                'packages.name as package_name',
+                                'packages.price as package_price',
+                                'user_packages.created_at as dateinvoice',
+                                'users.name as username'
+                            ])
+                    ->first();
+                    
+                $pdf = PDF::loadView('mails.newinvoice',compact('data'),[ 'title' => 'invoice', 'format' => 'A4-L','orientation' => 'L']);
+                $path = public_path('images');
+                $fileName =  'invoice.pdf' ;
+                Storage::put('public/invoices/' .$fileName, $pdf->output());
+                $file_path = storage_path('app/public/invoices/'.$fileName); 
+                // Mail::to('ahmedsaeed1722@gmail.com')->send(new \App\Mail\ConfirmAfterBuy($file_path));
+                Mail::to('ahmedsayedkhalil143@gmail.com')->send(new \App\Mail\ConfirmAfterBuy($file_path));
+                return back();
+    }
 
     public function indexBlog(PostRepositoryInterface $postRepository)
     {
@@ -65,9 +88,13 @@ class HomeController extends Controller
         {
             $arr [] = $post->id;
         }
-        $newposts = \App\Post::whereIn('id',$arr)->paginate(12);
+        $firstpost = \App\Post::whereIn('id',$arr)->orderBy('viewer', 'asc')->first();
+        $newposts = \App\Post::whereIn('id',$arr)->orderBy('viewer', 'asc')->paginate(12);
+        $reversposts = $newposts->reverse();
         return view('blog.blog')
             ->with('posts', $newposts)
+            ->with('reversposts',$reversposts)
+            ->with('firstpost',$firstpost)
             ->with('latestpost', \App\Post::latest()->limit(1)->first())
             ->with('sections', \App\Section::all());
     }
@@ -80,7 +107,7 @@ class HomeController extends Controller
         {
             $arr [] = $post->id;
         }
-        $newposts = \App\Post::whereIn('id',$arr)->paginate(9);
+        $newposts = \App\Post::whereIn('id',$arr)->orderBy('viewer', 'asc')->paginate(9);
         return view('blog.blogd')->with('posts', $newposts);
     }
 
@@ -635,6 +662,7 @@ class HomeController extends Controller
     public function package_view(Request $req, $id)
     {
         
+
         $package = \App\Packages::find($id);
 
         if (!$package) {
@@ -1113,12 +1141,18 @@ class HomeController extends Controller
                         ->get();
                         
         Cache::forget('coursesIndexPage');
+        // $courses = Cache::remember('coursesIndexPage', 1440, function () {
+        //     return \App\Course::where('private', '=', 0)->orderBy('updated_at', 'desc')->limit(20)
+        //         ->get();
+        // });
         $courses = Cache::remember('coursesIndexPage', 1440, function () {
-            return \App\Course::where('private', '=', 0)->orderBy('updated_at', 'desc')->limit(20)
+            return \App\Course::where('private', '=', 0)->orderBy('z_index', 'asc')->limit(20)
                 ->get();
         });
 
-        $country_code = Zone::getLocation()->country_code;
+        // $country_code = Zone::getLocation()->country_code;
+        $country_code = session('locationData')->country_code;
+        
 
         /**
          * Get Popular Courses Data
@@ -1176,7 +1210,6 @@ class HomeController extends Controller
         if ($v_id) {
             $vhtml = (app('App\Http\Controllers\VideoController')->Vimeo_GetVideo($v_id))->embed->html;
         }
-
         return view('indexV3')
             ->with('promotedCouponDetails', $promotedCouponDetails)
             ->with('webSiteStatistics', $webSiteStatistics)
