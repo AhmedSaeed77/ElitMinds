@@ -289,8 +289,11 @@
                 </div>
                 <div class="form-group-lg py-5 row">
                     <label class="col-2 col-form-label">Feedback</label>
-                    <div class="col-10">
-                        <textarea id="feedbackEditor"></textarea>
+                    <div class="col-5">
+                        <textarea placeholder="Feedback" id="feedbackEditor">Feedback </textarea>
+                    </div>
+                    <div class="col-5">
+                        <textarea placeholder="Feedback" id="feedbackEditorAr">Feedback </textarea>
                     </div>
                 </div>
             </div>
@@ -320,7 +323,8 @@
     <!--<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>-->
     <!--<script src="{{ asset('helper/js/ckeditor/ckeditor.js')}}"></script>-->
       <!--begin::Page Vendors(used by this page)-->
-      <script src="{{ asset('helper/js/ckeditor/ckeditor.js')}}"></script>
+      
+      
     @if(env('APP_ENV') == 'local')
         <script src="{{asset('helper/js/vue-dev.js')}}"></script>
     @else
@@ -332,10 +336,13 @@
     <script src="{{asset('assets/js/pages/widgets.js?v=7.0.4')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.6/lib/darkmode-js.min.js"></script>
     <script src="{{asset('assets/js/pages/crud/forms/widgets/select2.js?v=7.0.4')}}"></script>
-    <!--<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>-->
-    <script src="{{ asset('helper/js/ckeditor/ckeditor.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-
+    
+    <script src="{{ asset('helper/js/tinymce/tinymce.min.js')}}"></script>
+    <script>
+        // for dark mode
+        // var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    </script>
+    <!--<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/super-build/ckeditor.js"></script>-->
     <script>
 
         var KTDropzoneDemo = function () {
@@ -446,7 +453,7 @@
                 this.titleEditor = this.initEditor('titleEditor', 280);
                 this.titleEditorAr = this.initEditor('titleEditorAr', 280);
                 this.feedbackEditor = this.initEditor('feedbackEditor', 280);
-                // this.feedbackEditorAr = this.initEditor('feedbackEditorAr', 280);
+                this.feedbackEditorAr = this.initEditor('feedbackEditorAr', 280);
             },
             computed:{
                 isMatchingToCenter: function(){
@@ -466,13 +473,83 @@
                 },
             },
             methods:{
+                
                 initEditor: function(element_id, height){
-                    return CKEDITOR.replace(element_id, {
-                        filebrowserUploadUrl: '{{route('ckeditor.upload', ['_token' => csrf_token()])}}',
-                        filebrowserUploadMethod: 'form',
+                    return tinymce.init({
+                        selector: '#'+element_id,
+                        document_base_url: '{{url('/helper/js/tinymce/')}}',
+                        plugins: ' preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
+                        imagetools_cors_hosts: ['picsum.photos'],
+                        menubar: 'file edit view insert format tools table help',
+                         
+                        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bold italic underline strikethrough | fontfamily fontsize blocks | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+
+                        toolbar_sticky: true,
+                        autosave_ask_before_unload: true,
+                        autosave_interval: '30s',
+                        autosave_prefix: '{path}{query}-{id}-',
+                        autosave_restore_when_empty: false,
+                        autosave_retention: '2m',
+                        image_advtab: true,
+                        link_list: [
+                        { title: 'My page 1', value: 'https://www.tiny.cloud' },
+                        { title: 'My page 2', value: 'http://www.moxiecode.com' }
+                        ],
+                        image_list: [
+                        { title: 'My page 1', value: 'https://www.tiny.cloud' },
+                        { title: 'My page 2', value: 'http://www.moxiecode.com' }
+                        ],
+                        image_class_list: [
+                        { title: 'None', value: '' },
+                        { title: 'Some class', value: 'class-name' }
+                        ],
+                        importcss_append: true,
+                        file_picker_callback: function (callback, value, meta) {
+                        /* Provide file and text for the link dialog */
+                        if (meta.filetype === 'file') {
+                        callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
+                        }
+                        
+                        /* Provide image and alt text for the image dialog */
+                        if (meta.filetype === 'image') {
+                        callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
+                        }
+                        
+                        /* Provide alternative source and posted for the media dialog */
+                        if (meta.filetype === 'media') {
+                        callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
+                        }
+                        },
+                        templates: [
+                        { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
+                        { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
+                        { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br /><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
+                        ],
+                        template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+                        template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
                         height,
-                        extraPlugins: 'colorbutton',
-                    });
+                        image_caption: true,
+                        quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quicktable',
+                        noneditable_noneditable_class: 'mceNonEditable',
+                        toolbar_mode: 'sliding',
+                        contextmenu: 'link image imagetools table',
+                        // skin: useDarkMode ? 'oxide-dark' : 'oxide',
+                        // content_css: useDarkMode ? 'dark' : 'default',
+                        // content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                        font_formats: "Roboto=Roboto; Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Oswald=oswald; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats",
+                        content_style: "@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); body { font-family: Roboto;, font-size:14px; }",
+                        });
+                        
+
+                    // return CKEDITOR.replace(element_id, {
+                    //     filebrowserUploadUrl: '{{route('ckeditor.upload', ['_token' => csrf_token()])}}',
+                    //     filebrowserUploadMethod: 'form',
+                    //     height,
+                    //     //extraPlugins: 'colorbutton',
+                    //     removePlugins: [
+                    //         'copyformatting', 'pastefromgdocs', 'pastefromlibreoffice', 'pastefromword', 'pastetext', 'clipboard'
+                    //     ],
+                    // });
                 },
                 store:async function(){
                     validation = this.validate();
@@ -505,12 +582,13 @@
                             'X-CSRF-TOKEN': '{{csrf_token()}}'
                         }
                     });
+   
                     return $.ajax ({
                         type: 'POST',
                         url: '{{ route('question.store')}}',
                         data: {
-                            question_title: app.titleEditor.getData(),
-                            question_title_ar: app.titleEditorAr.getData(),
+                            question_title: tinymce.get("titleEditor").getContent(),
+                            question_title_ar: tinymce.get("titleEditorAr").getContent(),
 
                             question_type_id: app.question_type_id,
                             correct_answers_required: app.correct_answers_required,
@@ -526,8 +604,8 @@
 
                             demo: app.demo,
 
-                            feedback: app.feedbackEditor.getData(),
-                            feedback_ar: app.feedbackEditorAr,
+                            feedback: tinymce.get("feedbackEditor").getContent(),
+                            feedback_ar: tinymce.get("feedbackEditorAr").getContent(),
 
                             images: KTDropzoneDemo.uploadedDocumentArray,
                         },
@@ -549,8 +627,8 @@
                         return validation;
                     }
 
-                    if(this.feedbackEditor.getData() == ''){
-                        validation.error = 'Feedback Is required !';
+                    if(tinymce.get("titleEditor").getContent() == ''){
+                        validation.error = 'Question Is required !';
                         return validation;
                     }
 
