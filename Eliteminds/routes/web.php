@@ -21,6 +21,9 @@ use Illuminate\Support\Facades\DB;
 use Jenssegers\Agent\Agent;
 use Illuminate\Support\Facades\Cache;
 
+Route::get('testLang', function(){
+    dd(session('canChangeLang'));
+});
 
 // Route::get('vii', function(){
 //     $video = \App\Video::first();
@@ -170,7 +173,7 @@ Route::prefix('newlay')->group(
 
 
 
-
+Route::get('/exportpdf', 'HomeController@exportpdf')->name('exportpdf');
 
 
 Route::post('notes', 'VideoComRateController@getNotes')->middleware('auth')->name('getNotes');
@@ -269,6 +272,7 @@ Route::get('sessionDBs', function (illuminate\Http\Request $req) {
     dd($x);
 });
 
+Route::post('/password/change', 'Auth\RegisterController@changepass')->name('student.password.changepass');
 
 /**
  * Social Login
@@ -294,7 +298,8 @@ Route::get('contact', 'HomeController@contactPage')->name('contact.page');
 Route::get('/load/first/topic/{package_id}', 'Users\PremiumQuizController@attachThePackageContent')->middleware('auth')->name('attach.package');
 
 
-Route::post('certification/Course/img', 'CertificationController@generate')->middleware('auth')->name('generate.certification');
+// Route::post('certification/Course/img', 'CertificationController@generate')->middleware('auth')->name('generate.certification');
+Route::post('certification/Course/img', 'CertificationController@anothorgenerate')->middleware('auth')->name('generate.certification');
 Route::get('certification/download/{id}', 'CertificationController@sendCertification')->middleware('auth')->name('download.certification');
 
 
@@ -319,7 +324,7 @@ Route::get('PublicFAQ', function () {
 
 
 
-Route::get('user/dashboard', 'HomeController@user_board')->name('user.dashboard');
+Route::get('user/dashboard', 'HomeController@user_board')->middleware('auth')->name('user.dashboard');
 
 Route::get('/editprofile','HomeController@showUpdateForm')->middleware('auth')->name('user.editprofile');
 Route::post('/updateprofile', 'HomeController@updateprofile')->middleware('auth')->name('user.updateprofile');
@@ -358,7 +363,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/delete/certificates-faq/{id}', 'FaqCorceController@delete')->name('admin.delete.FaqCorce');
     Route::get('/edit/certificates-faq/{id}', 'FaqCorceController@edit')->name('admin.edit.FaqCorce');
     Route::post('/show/certificates-faq/{id}', 'FaqCorceController@show')->name('admin.show.FaqCorce');
-    Route::post('/update/certificates-faq', 'FaqCorceController@update')->name('admin.update.FaqCorce');
+    Route::post('/update/certificates-faq/{id}', 'FaqCorceController@update')->name('admin.update.FaqCorce');
 
     /**
      *  Blog
@@ -757,8 +762,6 @@ Route::post('/PremiumQuiz/VideoComplete', 'Users\PremiumQuizController@VideoComp
 Route::post('/PremiumQuiz/Event/VideoComplete', 'Users\PremiumQuizController@EventVideoComplete')->middleware('auth')->name('Event.PremiumQuiz.VideoComplete');
 
 /** Rating System */
-
-
 Route::post('/user/rate', 'Users\PremiumQuizController@rate')->name('user.rate');
 Route::post('/user/review', 'Users\PremiumQuizController@storeReview')->middleware('auth')->name('user.review');
 Route::get('/user/StudyMetrial', 'Users\PremiumQuizController@StudyMetrial')->middleware('auth')->name('user.StudyMetrial');
