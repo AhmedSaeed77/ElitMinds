@@ -157,22 +157,6 @@ Route::prefix('newlay')->group(
 );
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::get('/exportpdf', 'HomeController@exportpdf')->name('exportpdf');
 
 
