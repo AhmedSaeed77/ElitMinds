@@ -757,6 +757,8 @@ Route::post('/PremiumQuiz/VideoComplete', 'Users\PremiumQuizController@VideoComp
 Route::post('/PremiumQuiz/Event/VideoComplete', 'Users\PremiumQuizController@EventVideoComplete')->middleware('auth')->name('Event.PremiumQuiz.VideoComplete');
 
 /** Rating System */
+
+
 Route::post('/user/rate', 'Users\PremiumQuizController@rate')->name('user.rate');
 Route::post('/user/review', 'Users\PremiumQuizController@storeReview')->middleware('auth')->name('user.review');
 Route::get('/user/StudyMetrial', 'Users\PremiumQuizController@StudyMetrial')->middleware('auth')->name('user.StudyMetrial');
